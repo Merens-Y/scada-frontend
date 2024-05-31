@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "npm-run-all --parallel vite typesafe-i18n",
-    	"vite": "vite dev --open",
+		"vite": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -43,6 +43,7 @@
 		"clsx": "^2.1.1",
 		"lucide-svelte": "^0.378.0",
 		"mode-watcher": "^0.3.0",
+		"npm-run-all": "^4.1.5",
 		"tailwind-merge": "^2.3.0",
 		"tailwind-variants": "^0.2.1",
 		"typesafe-i18n": "^5.26.2"
