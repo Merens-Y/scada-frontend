@@ -1,4 +1,7 @@
 <script lang="ts">
+	// LL is a function that returns a translation function based on the current locale, don't change this!
+	import { LL } from '$lib/i18n/i18n-svelte';
+
 	import { cn } from '$lib/utils.js';
 	import ChevronsUpDown from 'lucide-svelte/icons/chevrons-up-down';
 	import * as Collapsible from '$lib/components/ui/collapsible/index.js';
@@ -8,10 +11,10 @@
 	export { className as class };
 
     let navBarElements = [
-        ['Máquinas', '/machine-dashboard'],
-        ['Base de datos', '/machine-database'],
-        ['Manual de Usuario', '/user-manual'],
-        ['Configuración', '/configuration'],
+        [$LL.navbar.machines(), '/machines'],
+        [$LL.navbar.database(), '/machine-database'],
+        [$LL.navbar.userManual(), '/user-manual'],
+        [$LL.navbar.configuration(), '/configuration'],
         ];
 </script>
 

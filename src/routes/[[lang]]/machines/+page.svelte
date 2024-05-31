@@ -1,0 +1,1 @@
+<h1>Machine Dashboard</h1>

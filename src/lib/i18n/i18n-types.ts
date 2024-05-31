@@ -6,8 +6,8 @@ export type BaseTranslation = BaseTranslationType
 export type BaseLocale = 'en'
 
 export type Locales =
-	| 'de'
 	| 'en'
+	| 'es'
 
 export type Translation = RootTranslation
 
@@ -19,6 +19,56 @@ type RootTranslation = {
 	 * @param {string} name
 	 */
 	HI: RequiredParams<'name'>
+	navbar: {
+		/**
+		 * M​a​c​h​i​n​e​s
+		 */
+		machines: string
+		/**
+		 * D​a​t​a​b​a​s​e
+		 */
+		database: string
+		/**
+		 * U​s​e​r​ ​M​a​n​u​a​l
+		 */
+		userManual: string
+		/**
+		 * C​o​n​f​i​g​u​r​a​t​i​o​n
+		 */
+		configuration: string
+	}
+	darkModeSelector: {
+		/**
+		 * S​w​i​t​c​h​ ​M​o​d​e
+		 */
+		switchMode: string
+		/**
+		 * D​a​r​k​ ​M​o​d​e
+		 */
+		darkMode: string
+		/**
+		 * L​i​g​h​t​ ​M​o​d​e
+		 */
+		lightMode: string
+		/**
+		 * S​a​m​e​ ​a​s​ ​S​y​s​t​e​m
+		 */
+		sameAsSystem: string
+	}
+	userNav: {
+		/**
+		 * P​r​o​f​i​l​e
+		 */
+		profile: string
+		/**
+		 * L​o​g​o​u​t
+		 */
+		logout: string
+		/**
+		 * U​s​e​r​ ​S​e​t​t​i​n​g​s
+		 */
+		userSettings: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -26,6 +76,56 @@ export type TranslationFunctions = {
 	 * Hi {name}! Please leave a star if you like this project: https://github.com/ivanhofer/typesafe-i18n
 	 */
 	HI: (arg: { name: string }) => LocalizedString
+	navbar: {
+		/**
+		 * Machines
+		 */
+		machines: () => LocalizedString
+		/**
+		 * Database
+		 */
+		database: () => LocalizedString
+		/**
+		 * User Manual
+		 */
+		userManual: () => LocalizedString
+		/**
+		 * Configuration
+		 */
+		configuration: () => LocalizedString
+	}
+	darkModeSelector: {
+		/**
+		 * Switch Mode
+		 */
+		switchMode: () => LocalizedString
+		/**
+		 * Dark Mode
+		 */
+		darkMode: () => LocalizedString
+		/**
+		 * Light Mode
+		 */
+		lightMode: () => LocalizedString
+		/**
+		 * Same as System
+		 */
+		sameAsSystem: () => LocalizedString
+	}
+	userNav: {
+		/**
+		 * Profile
+		 */
+		profile: () => LocalizedString
+		/**
+		 * Logout
+		 */
+		logout: () => LocalizedString
+		/**
+		 * User Settings
+		 */
+		userSettings: () => LocalizedString
+	}
 }
 
 export type Formatters = {}
