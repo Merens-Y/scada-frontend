@@ -1,1 +1,1 @@
-<h1>Machines</h1>
+<h1>Machine Database</h1>

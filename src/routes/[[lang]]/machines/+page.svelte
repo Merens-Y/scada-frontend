@@ -1,1 +1,1 @@
-<h1>Machine Dashboard</h1>
+<h1>Machines</h1>
