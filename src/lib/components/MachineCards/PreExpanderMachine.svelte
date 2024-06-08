@@ -1,3 +1,4 @@
+<!-- TODO: Set proper sized text and block size depending on screen size. Mobile first, then md and lg -->
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
@@ -35,8 +36,8 @@
 		<div class="grid grid-cols-12 gap-1">
 			<Card.Title class="col-span-11">machine_serial_number</Card.Title><StatusLed class="col-span-1" {...ledProps} />
 		</div>
-		<MachineHealthBar {...healthBarProps}></MachineHealthBar>
-        <CyclePerformanceIndicator></CyclePerformanceIndicator>
+		<MachineHealthBar {...healthBarProps}/>
+        <CyclePerformanceIndicator/>
 		<Card.Description>Deploy your new project in one-click.</Card.Description>
 		<Card.Description>Deploy your new project in one-click.</Card.Description>
 		<Card.Description>Deploy your new project in one-click.</Card.Description>

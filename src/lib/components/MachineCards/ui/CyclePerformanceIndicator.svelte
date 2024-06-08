@@ -1,9 +1,13 @@
+<!-- TODO: apply better colors for dark mode -->
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 
-	let heightBias = 14;
+	let triangleHeightBias = 11;
+
+	let barHeight = 10;
+	let barRadius = 5;
 
 	let currentTime = 0; // Prop for current cycle time
 	let lastTime = 0; // Prop for last cycle time
@@ -50,27 +54,27 @@
 
 <div class="bar-container">
 	<svg width="100%" height="20">
-		<rect x="0" y="0" width="{idealWidthF}%" height="16" fill="#4CAF50" rx="8px" />
-		<rect x="{idealWidthF}%" y="0" width="{warningWidthF}%" height="16" fill="#ffc107" rx="8px" />
+		<rect x="0" y="0" width="{idealWidthF}%" height="{barHeight}" fill="#4CAF50" rx="{barRadius}" />
+		<rect x="{idealWidthF}%" y="0" width="{warningWidthF}%" height="{barHeight}" fill="#ffc107" rx="{barRadius}" />
 		<rect
 			x="{idealWidthF + warningWidthF}%"
 			y="0"
 			width="{criticalWidthF}%"
-			height="16"
+			height="{barHeight}"
 			fill="#f44336"
-			rx="8px"
+			rx="{barRadius}"
 		/>
 		<polygon
-			points="{lastArrowPos + 5},{heightBias + 0}
-              {lastArrowPos + 0},{heightBias + 5}
-              {lastArrowPos + 10},{heightBias + 5}"
+			points="{lastArrowPos + 5},{triangleHeightBias + 0}
+              {lastArrowPos + 0},{triangleHeightBias + 5}
+              {lastArrowPos + 10},{triangleHeightBias + 5}"
 			fill="#666A"
 			stroke="#000A"
 		/>
 		<polygon
-			points="{currentArrowPos + 5},{heightBias + 0}
-              {currentArrowPos + 0},{heightBias + 5}
-              {currentArrowPos + 10},{heightBias + 5}"
+			points="{currentArrowPos + 5},{triangleHeightBias + 0}
+              {currentArrowPos + 0},{triangleHeightBias + 5}
+              {currentArrowPos + 10},{triangleHeightBias + 5}"
 			fill="#FFFA"
 			stroke="#000A"
 		/>
