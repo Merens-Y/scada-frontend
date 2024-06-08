@@ -2,11 +2,26 @@
 	import { onMount } from 'svelte';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
-	// Props for the component
-	export let currentTime = 0;
-	export let lastTime = 0;
-	export let idealTime = 120;
-	export let maxTime = 180;
+
+	let heightBias = 14;
+
+	let currentTime = 0; // Prop for current cycle time
+	let lastTime = 0; // Prop for last cycle time
+	let idealTime = 120; // Prop for ideal cycle time
+	let maxTime = 180; // Prop for maximum cycle time
+
+	// Calculate fixed positions for bars based on props
+	const idealWidth = (idealTime / maxTime) * 100;
+	const warningWidth = ((maxTime - idealTime) / maxTime) * 100;
+	const criticalWidth = ((currentTime - maxTime) / maxTime) * 100;
+
+	const idealWidthF = 50;
+	const warningWidthF = 20;
+	const criticalWidthF = 30;
+
+	// Fixed positions for arrows (can be adjusted)
+	const currentArrowPos = 80;
+	const lastArrowPos = 20;
 
 	const currentProgress = tweened(0, {
 		duration: 400,
@@ -35,36 +50,29 @@
 
 <div class="bar-container">
 	<svg width="100%" height="20">
-		<rect x="0" y="0" width="{(idealTime / maxTime) * 100}%" height="20" fill="#4CAF50" />
+		<rect x="0" y="0" width="{idealWidthF}%" height="16" fill="#4CAF50" rx="8px" />
+		<rect x="{idealWidthF}%" y="0" width="{warningWidthF}%" height="16" fill="#ffc107" rx="8px" />
 		<rect
-			x="{(idealTime / maxTime) * 100}%"
+			x="{idealWidthF + warningWidthF}%"
 			y="0"
-			width="{((maxTime - idealTime) / maxTime) * 100}%"
-			height="20"
-			fill="#ffc107"
-		/>
-		<rect
-			x="{(maxTime / maxTime) * 100}%"
-			y="0"
-			width="{((currentTime - maxTime) / maxTime) * 100}%"
-			height="20"
+			width="{criticalWidthF}%"
+			height="16"
 			fill="#f44336"
+			rx="8px"
 		/>
-
 		<polygon
-			points="{$currentProgress * 100}%,0 
-				{$currentProgress * 100}%,10 
-				{$currentProgress * 100 + 5}%,5"
-			fill="#000"
-			transform={`translate(${$currentProgress * 100}%, 0)`}
+			points="{lastArrowPos + 5},{heightBias + 0}
+              {lastArrowPos + 0},{heightBias + 5}
+              {lastArrowPos + 10},{heightBias + 5}"
+			fill="#666A"
+			stroke="#000A"
 		/>
-
 		<polygon
-			points="0,0 
-				0,10 
-				5,5"
-			fill="#999"
-			transform={`translate(${$lastProgress * 100}%, 0)`}
+			points="{currentArrowPos + 5},{heightBias + 0}
+              {currentArrowPos + 0},{heightBias + 5}
+              {currentArrowPos + 10},{heightBias + 5}"
+			fill="#FFFA"
+			stroke="#000A"
 		/>
 	</svg>
 </div>
@@ -73,5 +81,11 @@
 	.bar-container {
 		display: block;
 		width: 100%;
+		box-shadow: inset 0 0 4px #fff;
+		background-color: #aaa;
+		border-radius: 8px;
+		padding: 5px;
+		align-content: center;
+		height: 20px;
 	}
 </style>
