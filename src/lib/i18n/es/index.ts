@@ -8,7 +8,8 @@ const es = {
 		machines: 'Máquinas',
 		database: 'Base de datos',
 		userManual: 'Manual del usuario',
-		configuration: 'Configuración'
+		configuration: 'Configuración',
+		toggleNotifications: 'Alternar notificaciones',
 	},
 	darkModeSelector: {
 		switchMode: 'Cambiar tema',
@@ -19,7 +20,8 @@ const es = {
 	userNav: {
 		profile: 'Perfil',
 		logout: 'Cerrar Sesión',
-		userSettings: 'Ajustes de usuario'
+		userSettings: 'Ajustes de usuario',
+		toggleSpan: 'Alternar menu de usuario'
 	}
 } satisfies Translation;
 

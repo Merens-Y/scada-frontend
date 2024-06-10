@@ -8,6 +8,7 @@ const en = {
 		database: 'Database',
 		userManual: 'User Manual',
 		configuration: 'Configuration',
+		toggleNotifications: 'Toggle Notifications',
 	},
 	darkModeSelector: {
 		switchMode: 'Switch Mode',
@@ -19,6 +20,7 @@ const en = {
 		profile: 'Profile',
 		logout: 'Logout',
 		userSettings: 'User Settings',
+		toggleSpan: 'Toggle user menu',
 	}
 
 } satisfies BaseTranslation

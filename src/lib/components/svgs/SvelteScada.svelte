@@ -1,4 +1,5 @@
 <!-- TODO: edit the svg to fit the design of "Svelte Scada" -->
+<!-- FIXME: edit the svg viewbox, width and height to fit the design -->
 <script lang="ts">
 	let klass: string = '';
 
@@ -13,7 +14,7 @@
 	version="1.1"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
-	preserveAspectRatio="xMidYMid"
+	
 	><title>file_type_svelte</title>
 	<g>
 		<path

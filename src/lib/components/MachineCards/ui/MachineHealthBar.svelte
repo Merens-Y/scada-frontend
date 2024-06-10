@@ -31,16 +31,25 @@
 		updateProgress();
 	}
 </script>
-
-<progress value={$progress} class="h-1 {style}" />
+<div class="progress-container"><progress value={$progress} class="h-1 {style}" /></div>
 
 <style>
+	.progress-container {
+		display: block;
+		width: 100%;
+		box-shadow: inset 0 0 2px #c6c6c6;
+		background-color: #fff2;
+		border-radius: 8px;
+		padding: 4px;
+		align-content: center;
+	}
 	progress {
 		display: block;
 		width: 100%;
-		border-radius: 2px; /* Rounded corners */
+		border-radius: 2px;
 		accent-color: #6c6c6c;
-		-webkit-appearance: none; /* Remove default appearance */
+		-webkit-appearance: none;
+		appearance: none;
 	}
 	progress.green {
 		background-color: hsl(120, 33%, 73%); /*Green color for ideal performance */

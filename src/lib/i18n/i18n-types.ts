@@ -36,6 +36,10 @@ type RootTranslation = {
 		 * C​o​n​f​i​g​u​r​a​t​i​o​n
 		 */
 		configuration: string
+		/**
+		 * T​o​g​g​l​e​ ​N​o​t​i​f​i​c​a​t​i​o​n​s
+		 */
+		toggleNotifications: string
 	}
 	darkModeSelector: {
 		/**
@@ -68,6 +72,10 @@ type RootTranslation = {
 		 * U​s​e​r​ ​S​e​t​t​i​n​g​s
 		 */
 		userSettings: string
+		/**
+		 * T​o​g​g​l​e​ ​u​s​e​r​ ​m​e​n​u
+		 */
+		toggleSpan: string
 	}
 }
 
@@ -93,6 +101,10 @@ export type TranslationFunctions = {
 		 * Configuration
 		 */
 		configuration: () => LocalizedString
+		/**
+		 * Toggle Notifications
+		 */
+		toggleNotifications: () => LocalizedString
 	}
 	darkModeSelector: {
 		/**
@@ -125,6 +137,10 @@ export type TranslationFunctions = {
 		 * User Settings
 		 */
 		userSettings: () => LocalizedString
+		/**
+		 * Toggle user menu
+		 */
+		toggleSpan: () => LocalizedString
 	}
 }
 
