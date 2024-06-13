@@ -24,23 +24,20 @@
 	}
 </script>
 
-<div class="led-container place-content-center"><div class="status-led {klass} {state}"></div></div>
+<div class="led-container rounded-sm w-5 h-7 p-1 place-content-center md:rounded md:w-7 md:h-7 {klass}"><div class="status-led rounded-sm md:rounded {state}"></div></div>
 
 <style>
 	.led-container {
-		width: 28px;
 		box-shadow: inset 0 0 4px #c6c6c6;
 		background-color: #fff2;
-		border-radius: 10%;
 		align-content: center;
 	}
 
 	.status-led {
 		/* Base styles for all states (e.g., size, border-radius) */
-		height: 20px;
-		width: 20px;
-		border-radius: 10%;
-		margin: 4px;
+		height: 100%;
+		width: 100%;
+		/* border-radius: 4px; */
 	}
 
 	.status-led.running {
