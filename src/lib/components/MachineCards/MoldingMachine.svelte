@@ -1,4 +1,7 @@
 <!-- DOCUMENT: Create appropiate wiki page only after setting proper types and props. -->
+<!-- TODO: Add context menu -->
+<!-- TODO: Add machine name edit button -->
+<!-- TODO: Add tooltips for each widget -->
 <script lang="ts">
     import CyclePerformanceIndicator from './ui/CyclePerformanceIndicator.svelte';
 	import MachineHealthBar from './ui/MachineHealthBar.svelte';
