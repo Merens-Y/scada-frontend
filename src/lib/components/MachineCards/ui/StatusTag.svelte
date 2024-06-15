@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { LL } from '$lib/i18n/i18n-svelte';
     import { onMount } from 'svelte';
     // Props
     let klass: string = '';
@@ -31,18 +32,18 @@
 </script>
 <div class="hidden opacity-95 text-accent-foreground bg-accent font-mono text-xs uppercase place-content-center md:flex {klass} tag-container" >
     <div class="{states.manual}">
-        Manual
+        {$LL.statusTag.manual()}
     </div>
     <div class="{states.auto}">
-        Automatic
+        {$LL.statusTag.automatic()}
     </div>
 </div>
 <div class="flex opacity-95 text-accent-foreground bg-accent font-mono text-xs uppercase place-content-center md:hidden {klass} tag-container" >
     <div class="{states.manual}">
-        Man
+        {$LL.statusTag.man()}
     </div>
     <div class="{states.auto}">
-        Auto
+        {$LL.statusTag.auto()}
     </div>
 </div>
 

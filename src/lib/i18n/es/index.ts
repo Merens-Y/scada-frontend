@@ -22,6 +22,12 @@ const es = {
 		logout: 'Cerrar Sesión',
 		userSettings: 'Ajustes de usuario',
 		toggleSpan: 'Alternar menu de usuario'
+	},
+	statusTag: {
+		automatic: 'Automático',
+		manual: 'Manual',
+		auto: 'Auto',
+		man: 'Man'
 	}
 } satisfies Translation;
 

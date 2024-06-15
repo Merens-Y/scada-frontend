@@ -77,6 +77,24 @@ type RootTranslation = {
 		 */
 		toggleSpan: string
 	}
+	statusTag: {
+		/**
+		 * A​u​t​o​m​a​t​i​c
+		 */
+		automatic: string
+		/**
+		 * M​a​n​u​a​l
+		 */
+		manual: string
+		/**
+		 * A​u​t​o
+		 */
+		auto: string
+		/**
+		 * M​a​n
+		 */
+		man: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -141,6 +159,24 @@ export type TranslationFunctions = {
 		 * Toggle user menu
 		 */
 		toggleSpan: () => LocalizedString
+	}
+	statusTag: {
+		/**
+		 * Automatic
+		 */
+		automatic: () => LocalizedString
+		/**
+		 * Manual
+		 */
+		manual: () => LocalizedString
+		/**
+		 * Auto
+		 */
+		auto: () => LocalizedString
+		/**
+		 * Man
+		 */
+		man: () => LocalizedString
 	}
 }
 

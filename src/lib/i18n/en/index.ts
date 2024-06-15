@@ -21,6 +21,12 @@ const en = {
 		logout: 'Logout',
 		userSettings: 'User Settings',
 		toggleSpan: 'Toggle user menu',
+	},
+	statusTag: {
+		automatic: 'Automatic',
+		manual: 'Manual',
+		auto: 'Auto',
+		man: 'Man',
 	}
 
 } satisfies BaseTranslation

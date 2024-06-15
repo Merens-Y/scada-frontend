@@ -33,7 +33,7 @@
 		<div class="flex h-full max-h-screen flex-col gap-2">
 			<div class="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
 				<a href="/" class="flex items-center gap-2 font-semibold">
-					<SvelteScada class="h-12 w-12 lg:h-16 lg:w-16" />
+					<SvelteScada class="h-auto w-16 lg:w-20" />
 				</a>
 				<Button variant="outline" size="icon" class="ml-auto h-8 w-8">
 					<Bell class="h-4 w-4" />
@@ -67,7 +67,7 @@
 				<Sheet.Content side="left" class="flex flex-col">
 					<nav class="grid gap-2 text-lg font-medium">
 						<a href="/" class="flex items-center gap-2 text-lg font-semibold">
-							<SvelteScada class="h-12 w-12" />
+							<SvelteScada class="h-auto w-16 py-2" />
 						</a>
                         {#each dashboardElements as dashboardElement (dashboardElement.name)}
                             <a
