@@ -27,8 +27,20 @@ const en = {
 		manual: 'Manual',
 		auto: 'Auto',
 		man: 'Man',
-	}
-
+	},
+	performanceIndicator: {
+		currentTime: 'Current cycle time',
+		lastTime: 'Last cycle time',
+		idealTime: 'Ideal cycle time',
+		maximumTime: 'Maximum cycle time',
+		legend: 'Current / Last cycle time',
+	},
+	machineHealthBar: {
+		totalCycles: 'Total cycles',
+		idealCycles: 'Ideal cycles',
+		maximumCycles: 'Maximum cycles',
+		legend: 'Cycles since maintenance',
+	},
 } satisfies BaseTranslation
 
 export default en

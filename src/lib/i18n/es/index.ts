@@ -28,7 +28,20 @@ const es = {
 		manual: 'Manual',
 		auto: 'Auto',
 		man: 'Man'
-	}
+	},
+	performanceIndicator: {
+		currentTime: 'Tiempo de ciclo actual',
+		lastTime: 'Tiempo de ciclo pasado',
+		idealTime: 'Tiempo de ciclo Ideal',
+		maximumTime: 'Tiempo de ciclo Máximo',
+		legend: 'Tiempo de ciclo Actual / Pasado',
+	},
+	machineHealthBar: {
+		totalCycles: 'Ciclos totales',
+		idealCycles: 'Ciclos ideales',
+		maximumCycles: 'Ciclos máximos',
+		legend: 'Ciclos desde mantenimiento',
+	},
 } satisfies Translation;
 
 export default es;
