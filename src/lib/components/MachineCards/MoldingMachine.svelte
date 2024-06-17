@@ -10,6 +10,10 @@
     import StatusLed from './ui/StatusLED.svelte';
 	import StatusTag from './ui/StatusTag.svelte';
 	
+	export let moldingMachineProps = {
+		id: 'molding001',
+		customName: '',
+	};
 	// function that will be called when the button is clicked, it will loop through ledProps and then flip the booleans.
 	function randomizeMachineProps() {
 		return;
@@ -36,9 +40,9 @@
 	};
 </script>
 
-<div class="max-w-fit flex-col rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]">
+<div class="max-w-fit flex-col select-none cursor-default rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]">
 	<div class="flex w-full gap-x-1 mb-4 h-auto">
-		<div class="flex-1 grow text-md uppercase">max 12 chars</div>
+		<div class="flex-1 grow text-md uppercase">{moldingMachineProps.customName === '' ? moldingMachineProps.id : moldingMachineProps.customName}</div>
 		<StatusTag class="flex-none" {...tagProps} />
 		<StatusLed class="flex-none" {...ledProps} />
 	</div>

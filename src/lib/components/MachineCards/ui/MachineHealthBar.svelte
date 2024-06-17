@@ -40,7 +40,7 @@
 		<div class="progress-container" use:builder.action {...builder}><progress value={$progress} class="h-1 {style}" /></div>
 	</Tooltip.Trigger>
 	<Tooltip.Content side="top">
-		<div class="flex divide-x-4 divide-dotted divide-slate-800/25 dark:divide-slate-50/25">
+		<div class="flex text-xs divide-x-4 divide-dotted divide-slate-800/25 dark:divide-slate-50/25">
 			<div class="p-1">{$LL.machineHealthBar.totalCycles()}: {count}</div>
 			<div class="p-1">{$LL.machineHealthBar.idealCycles()}: {countIdeal}</div>
 			<div class="p-1">{$LL.machineHealthBar.maximumCycles()}: {countMax}</div>
