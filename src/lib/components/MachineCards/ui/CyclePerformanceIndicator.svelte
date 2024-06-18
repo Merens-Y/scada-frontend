@@ -10,10 +10,10 @@
 	let klass: string = '';
 	export { klass as class };
 
-	export let currentTime = 155;
-	export let lastTime = 106;
-	export let idealTime = 100;
-	export let maxTime = 180;
+	export let currentTime: number = 155;
+	export let lastTime: number = 106;
+	export let idealTime: number = 100;
+	export let maxTime: number = 180;
 
 	const triangleHeightBias = -6;
 	let lastTriangleColor = '#666';

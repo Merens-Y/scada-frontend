@@ -6,9 +6,9 @@
 
 	import * as Tooltip from '../../ui/tooltip';
 
-	export let count = 25; // Prop for current cycle count
-	export let countIdeal = 50; // Prop for ideal cycle count
-	export let countMax = 100; // Prop for maximum cycle count
+	export let count: number = 25; // Prop for current cycle count
+	export let countIdeal: number = 50; // Prop for ideal cycle count
+	export let countMax: number = 100; // Prop for maximum cycle count
 
 	let style = 'green'; // Default to green
 

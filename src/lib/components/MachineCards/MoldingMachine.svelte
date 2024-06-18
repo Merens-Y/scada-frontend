@@ -17,7 +17,7 @@
 	// function that will be called when the button is clicked, it will loop through ledProps and then flip the booleans.
 	function randomizeMachineProps() {
 		return;
-	}
+	};
 
 	const tagProps = {
 		isAuto: true,
@@ -28,7 +28,7 @@
 		isDisconnected: false
 	};
 	const healthBarProps = {
-		count: 25,
+		count: 605,
 		countIdeal: 500,
 		countMax: 700
 	};

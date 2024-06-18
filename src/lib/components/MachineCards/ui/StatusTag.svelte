@@ -4,8 +4,8 @@
     // Props
     let klass: string = '';
 	export { klass as class };
-    export let isDisconnected = false;
-    export let isAuto = true;
+    export let isDisconnected: boolean = false;
+    export let isAuto: boolean = true;
     
     let states = {
         manual: 'disabled',

@@ -3,8 +3,8 @@
 	// Props
 	let klass: string = '';
 	export { klass as class };
-	export let isRunning = false;
-	export let isDisconnected = true;
+	export let isRunning: boolean = false;
+	export let isDisconnected: boolean = true;
 	// State Management
 	let state = 'disconnected'; // Default to disconnected state
 
