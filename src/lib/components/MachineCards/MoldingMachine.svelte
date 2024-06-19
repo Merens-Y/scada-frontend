@@ -54,6 +54,7 @@
 						? moldingMachineProps.id
 						: moldingMachineProps.customName}
 				</div>
+				<div class="shrink w-6 sm:w-16 md:w-32 lg:w-64 h-auto"></div>
 				<StatusTag class="flex-none" {...tagProps} />
 				<StatusLed class="flex-none" {...ledProps} />
 			</div>

@@ -55,7 +55,7 @@
 		box-shadow: inset 0 0 2px #c6c6c6;
 		background-color: #fff2;
 		border-radius: 8px;
-		padding: 4px;
+		padding: 4px 8px;
 		align-content: center;
 	}
 	progress {
