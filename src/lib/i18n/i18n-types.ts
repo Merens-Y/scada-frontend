@@ -135,6 +135,24 @@ type RootTranslation = {
 		 */
 		legend: string
 	}
+	machineContextMenu: {
+		/**
+		 * D​e​t​a​i​l​s
+		 */
+		details: string
+		/**
+		 * C​y​c​l​e​ ​h​i​s​t​o​r​y
+		 */
+		cycleHistory: string
+		/**
+		 * R​e​n​a​m​e​ ​m​a​c​h​i​n​e
+		 */
+		renameMachine: string
+		/**
+		 * D​e​l​e​t​e​ ​m​a​c​h​i​n​e
+		 */
+		deleteMachine: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -257,6 +275,24 @@ export type TranslationFunctions = {
 		 * Cycles since maintenance
 		 */
 		legend: () => LocalizedString
+	}
+	machineContextMenu: {
+		/**
+		 * Details
+		 */
+		details: () => LocalizedString
+		/**
+		 * Cycle history
+		 */
+		cycleHistory: () => LocalizedString
+		/**
+		 * Rename machine
+		 */
+		renameMachine: () => LocalizedString
+		/**
+		 * Delete machine
+		 */
+		deleteMachine: () => LocalizedString
 	}
 }
 

@@ -41,6 +41,12 @@ const en = {
 		maximumCycles: 'Maximum cycles',
 		legend: 'Cycles since maintenance',
 	},
+	machineContextMenu: {
+		details: 'Details',
+		cycleHistory: 'Cycle history',
+		renameMachine: 'Rename machine',
+		deleteMachine: 'Delete machine',
+	},
 } satisfies BaseTranslation
 
 export default en

@@ -42,6 +42,12 @@ const es = {
 		maximumCycles: 'Ciclos máximos',
 		legend: 'Ciclos desde mantenimiento',
 	},
+	machineContextMenu: {
+		details: 'Detalles',
+		cycleHistory: 'Historial de ciclos',
+		renameMachine: 'Renombrar máquina',
+		deleteMachine: 'Borrar máquina',
+	},
 } satisfies Translation;
 
 export default es;

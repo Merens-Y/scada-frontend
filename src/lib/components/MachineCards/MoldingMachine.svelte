@@ -64,9 +64,9 @@
 		</div>
 	</ContextMenu.Trigger>
 	<ContextMenu.Content>
-		<ContextMenu.Item>Open details</ContextMenu.Item>
-		<ContextMenu.Item>Cycle history</ContextMenu.Item>
-		<ContextMenu.Item>Rename Machine</ContextMenu.Item>
-		<ContextMenu.Item>Delete machine</ContextMenu.Item>
+		<ContextMenu.Item>{$LL.machineContextMenu.details()}</ContextMenu.Item>
+		<ContextMenu.Item>{$LL.machineContextMenu.cycleHistory()}</ContextMenu.Item>
+		<ContextMenu.Item>{$LL.machineContextMenu.renameMachine()}</ContextMenu.Item>
+		<ContextMenu.Item class='bg-destructive text-slate-50'>{$LL.machineContextMenu.deleteMachine()}</ContextMenu.Item>
 	</ContextMenu.Content>
 </ContextMenu.Root>
