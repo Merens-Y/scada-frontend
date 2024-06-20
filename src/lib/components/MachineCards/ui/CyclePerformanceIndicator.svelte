@@ -115,7 +115,7 @@
 			</div>
 		</div>
 	</Tooltip.Trigger>
-	<Tooltip.Content side="top">
+	<Tooltip.Content side="right">
 		<div class="flex text-xs divide-x-4 divide-dotted divide-slate-800/25 dark:divide-slate-50/25">
 			<div class="p-1">{$LL.performanceIndicator.currentTime()}: {currentTime}s</div>
 			<div class="p-1">{$LL.performanceIndicator.lastTime()}: {lastTime}s</div>

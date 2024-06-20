@@ -7,6 +7,11 @@
 	import { LL } from '$lib/i18n/i18n-svelte';
 	// Shadcn-Svelte ui elements
 	import * as ContextMenu from '$lib/components/ui/context-menu';
+	import * as Collapsible from '$lib/components/ui/collapsible';
+	import * as Tabs from '$lib/components/ui/tabs';
+	import { Button } from '$lib/components/ui/button';
+	// Lucide icons
+	import ChevronsUpDown from 'lucide-svelte/icons/chevrons-up-down';
 	// Custom Machine Card widget elements
 	import CyclePerformanceIndicator from './ui/CyclePerformanceIndicator.svelte';
 	import MachineHealthBar from './ui/MachineHealthBar.svelte';
@@ -62,12 +67,40 @@
 			<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
 			<CyclePerformanceIndicator {...performanceIndicatorProps} />
 			<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
+			<Collapsible.Root class="w-full space-y-2">
+				<Collapsible.Content class="space-y-2">
+					<Tabs.Root value="details" class="w-full">
+						<Tabs.List class="grid w-full grid-cols-2">
+						  <Tabs.Trigger value="details">Details</Tabs.Trigger>
+						  <Tabs.Trigger value="recipe">Recipe</Tabs.Trigger>
+						</Tabs.List>
+						<Tabs.Content value="details">
+						  
+						</Tabs.Content>
+						<Tabs.Content value="recipe">
+						  
+						</Tabs.Content>
+					  </Tabs.Root>
+				</Collapsible.Content>
+				<div class="flex items-center justify-between space-x-4 px-4">
+					<Collapsible.Trigger asChild let:builder>
+						<div class="flex-1"></div>
+						<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
+							<ChevronsUpDown class="h-4 w-4" />
+							<span class="sr-only">Open details</span>
+						</Button>
+						<div class="flex-1"></div>
+					</Collapsible.Trigger>
+				</div>
+			</Collapsible.Root>
 		</div>
 	</ContextMenu.Trigger>
 	<ContextMenu.Content>
 		<ContextMenu.Item>{$LL.machineContextMenu.details()}</ContextMenu.Item>
 		<ContextMenu.Item>{$LL.machineContextMenu.cycleHistory()}</ContextMenu.Item>
 		<ContextMenu.Item>{$LL.machineContextMenu.renameMachine()}</ContextMenu.Item>
-		<ContextMenu.Item class='bg-destructive text-slate-50'>{$LL.machineContextMenu.deleteMachine()}</ContextMenu.Item>
+		<ContextMenu.Item class="bg-destructive text-slate-50"
+			>{$LL.machineContextMenu.deleteMachine()}</ContextMenu.Item
+		>
 	</ContextMenu.Content>
 </ContextMenu.Root>
