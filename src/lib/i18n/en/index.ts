@@ -47,6 +47,10 @@ const en = {
 		renameMachine: 'Rename machine',
 		deleteMachine: 'Delete machine',
 	},
+	machineCollapsibleTabs: {
+		details: 'Details',
+		recipe: 'Recipe',
+	},
 } satisfies BaseTranslation
 
 export default en

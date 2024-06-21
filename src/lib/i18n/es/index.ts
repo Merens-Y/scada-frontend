@@ -48,6 +48,10 @@ const es = {
 		renameMachine: 'Renombrar máquina',
 		deleteMachine: 'Borrar máquina',
 	},
+	machineCollapsibleTabs: {
+		details: 'Detalles',
+		recipe: 'Receta',
+	},
 } satisfies Translation;
 
 export default es;

@@ -68,36 +68,43 @@
 				<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
 				<CyclePerformanceIndicator {...performanceIndicatorProps} />
 				<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
-				
-					<Collapsible.Content class="space-y-2">
-						<Tabs.Root value="details" class="w-full">
-							<Tabs.List class="grid w-full grid-cols-2">
-							<Tabs.Trigger value="details">Details</Tabs.Trigger>
-							<Tabs.Trigger value="recipe">Recipe</Tabs.Trigger>
-							</Tabs.List>
-							<Tabs.Content value="details">
-							
-							</Tabs.Content>
-							<Tabs.Content value="recipe">
-							
-							</Tabs.Content>
-						</Tabs.Root>
-					</Collapsible.Content>
-					<div class="flex items-center justify-between space-x-4 px-4">
-						<Collapsible.Trigger asChild let:builder>
-							<div class="flex-1"></div>
-							<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
-								<ChevronsUpDown class="h-4 w-4" />
-								<span class="sr-only">Open details</span>
-							</Button>
-							<div class="flex-1"></div>
-						</Collapsible.Trigger>
-					</div>
-				
+
+				<Collapsible.Content class="space-y-2">
+					<Tabs.Root value="details" class="w-full">
+						<Tabs.List class="grid w-full grid-cols-2">
+							<Tabs.Trigger value="details">
+								{$LL.machineCollapsibleTabs.details()}
+							</Tabs.Trigger>
+							<Tabs.Trigger value="recipe">
+								{$LL.machineCollapsibleTabs.recipe()}
+							</Tabs.Trigger>
+						</Tabs.List>
+						<Tabs.Content value="details">
+							<div>Further detailed production data.</div>
+						</Tabs.Content>
+						<Tabs.Content value="recipe">
+							<div>Contents of the recipe.</div>
+						</Tabs.Content>
+					</Tabs.Root>
+				</Collapsible.Content>
+				<div class="flex items-center justify-between space-x-4 px-4">
+					<Collapsible.Trigger asChild let:builder>
+						<div class="flex-1"></div>
+						<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
+							<ChevronsUpDown class="h-4 w-4" />
+							<span class="sr-only">Open details</span>
+						</Button>
+						<div class="flex-1"></div>
+					</Collapsible.Trigger>
+				</div>
 			</div>
 		</ContextMenu.Trigger>
 		<ContextMenu.Content>
-			<ContextMenu.Item><Collapsible.Trigger class='w-full text-left'>{$LL.machineContextMenu.details()}</Collapsible.Trigger></ContextMenu.Item>
+			<ContextMenu.Item
+				><Collapsible.Trigger class="w-full text-left"
+					>{$LL.machineContextMenu.details()}</Collapsible.Trigger
+				></ContextMenu.Item
+			>
 			<ContextMenu.Item>{$LL.machineContextMenu.cycleHistory()}</ContextMenu.Item>
 			<ContextMenu.Item>{$LL.machineContextMenu.renameMachine()}</ContextMenu.Item>
 			<ContextMenu.Item class="bg-destructive text-slate-50"

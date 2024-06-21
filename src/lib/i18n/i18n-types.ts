@@ -153,6 +153,16 @@ type RootTranslation = {
 		 */
 		deleteMachine: string
 	}
+	machineCollapsibleTabs: {
+		/**
+		 * D​e​t​a​i​l​s
+		 */
+		details: string
+		/**
+		 * R​e​c​i​p​e
+		 */
+		recipe: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -293,6 +303,16 @@ export type TranslationFunctions = {
 		 * Delete machine
 		 */
 		deleteMachine: () => LocalizedString
+	}
+	machineCollapsibleTabs: {
+		/**
+		 * Details
+		 */
+		details: () => LocalizedString
+		/**
+		 * Recipe
+		 */
+		recipe: () => LocalizedString
 	}
 }
 
