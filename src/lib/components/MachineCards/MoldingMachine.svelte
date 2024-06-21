@@ -49,58 +49,60 @@
 </script>
 
 <ContextMenu.Root>
-	<ContextMenu.Trigger>
-		<div
-			class="max-w-fit flex-col select-none cursor-default rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]"
-		>
-			<div class="flex w-full gap-x-1 mb-4 h-auto">
-				<div class="flex-1 grow text-md uppercase">
-					{moldingMachineProps.customName === ''
-						? moldingMachineProps.id
-						: moldingMachineProps.customName}
+	<Collapsible.Root class="w-full">
+		<ContextMenu.Trigger>
+			<div
+				class="max-w-fit flex-col select-none cursor-default rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]"
+			>
+				<div class="flex w-full gap-x-1 mb-4 h-auto">
+					<div class="flex-1 grow text-md uppercase">
+						{moldingMachineProps.customName === ''
+							? moldingMachineProps.id
+							: moldingMachineProps.customName}
+					</div>
+					<div class="shrink w-6 sm:w-16 md:w-32 lg:w-64 h-auto"></div>
+					<StatusTag class="flex-none" {...tagProps} />
+					<StatusLed class="flex-none" {...ledProps} />
 				</div>
-				<div class="shrink w-6 sm:w-16 md:w-32 lg:w-64 h-auto"></div>
-				<StatusTag class="flex-none" {...tagProps} />
-				<StatusLed class="flex-none" {...ledProps} />
+				<MachineHealthBar {...healthBarProps} />
+				<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
+				<CyclePerformanceIndicator {...performanceIndicatorProps} />
+				<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
+				
+					<Collapsible.Content class="space-y-2">
+						<Tabs.Root value="details" class="w-full">
+							<Tabs.List class="grid w-full grid-cols-2">
+							<Tabs.Trigger value="details">Details</Tabs.Trigger>
+							<Tabs.Trigger value="recipe">Recipe</Tabs.Trigger>
+							</Tabs.List>
+							<Tabs.Content value="details">
+							
+							</Tabs.Content>
+							<Tabs.Content value="recipe">
+							
+							</Tabs.Content>
+						</Tabs.Root>
+					</Collapsible.Content>
+					<div class="flex items-center justify-between space-x-4 px-4">
+						<Collapsible.Trigger asChild let:builder>
+							<div class="flex-1"></div>
+							<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
+								<ChevronsUpDown class="h-4 w-4" />
+								<span class="sr-only">Open details</span>
+							</Button>
+							<div class="flex-1"></div>
+						</Collapsible.Trigger>
+					</div>
+				
 			</div>
-			<MachineHealthBar {...healthBarProps} />
-			<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
-			<CyclePerformanceIndicator {...performanceIndicatorProps} />
-			<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
-			<Collapsible.Root class="w-full space-y-2">
-				<Collapsible.Content class="space-y-2">
-					<Tabs.Root value="details" class="w-full">
-						<Tabs.List class="grid w-full grid-cols-2">
-						  <Tabs.Trigger value="details">Details</Tabs.Trigger>
-						  <Tabs.Trigger value="recipe">Recipe</Tabs.Trigger>
-						</Tabs.List>
-						<Tabs.Content value="details">
-						  
-						</Tabs.Content>
-						<Tabs.Content value="recipe">
-						  
-						</Tabs.Content>
-					  </Tabs.Root>
-				</Collapsible.Content>
-				<div class="flex items-center justify-between space-x-4 px-4">
-					<Collapsible.Trigger asChild let:builder>
-						<div class="flex-1"></div>
-						<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
-							<ChevronsUpDown class="h-4 w-4" />
-							<span class="sr-only">Open details</span>
-						</Button>
-						<div class="flex-1"></div>
-					</Collapsible.Trigger>
-				</div>
-			</Collapsible.Root>
-		</div>
-	</ContextMenu.Trigger>
-	<ContextMenu.Content>
-		<ContextMenu.Item>{$LL.machineContextMenu.details()}</ContextMenu.Item>
-		<ContextMenu.Item>{$LL.machineContextMenu.cycleHistory()}</ContextMenu.Item>
-		<ContextMenu.Item>{$LL.machineContextMenu.renameMachine()}</ContextMenu.Item>
-		<ContextMenu.Item class="bg-destructive text-slate-50"
-			>{$LL.machineContextMenu.deleteMachine()}</ContextMenu.Item
-		>
-	</ContextMenu.Content>
+		</ContextMenu.Trigger>
+		<ContextMenu.Content>
+			<ContextMenu.Item><Collapsible.Trigger class='w-full text-left'>{$LL.machineContextMenu.details()}</Collapsible.Trigger></ContextMenu.Item>
+			<ContextMenu.Item>{$LL.machineContextMenu.cycleHistory()}</ContextMenu.Item>
+			<ContextMenu.Item>{$LL.machineContextMenu.renameMachine()}</ContextMenu.Item>
+			<ContextMenu.Item class="bg-destructive text-slate-50"
+				>{$LL.machineContextMenu.deleteMachine()}</ContextMenu.Item
+			>
+		</ContextMenu.Content>
+	</Collapsible.Root>
 </ContextMenu.Root>
