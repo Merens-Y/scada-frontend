@@ -52,7 +52,7 @@
 	<Collapsible.Root class="w-full">
 		<ContextMenu.Trigger>
 			<div
-				class="max-w-fit flex-col select-none cursor-default rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]"
+				class="max-w-fit flex-col select-none cursor-pointer rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]"
 			>
 				<div class="flex w-full gap-x-1 mb-4 h-auto">
 					<div class="flex-1 grow text-md uppercase">
