@@ -17,6 +17,7 @@
 	import MachineHealthBar from './ui/MachineHealthBar.svelte';
 	import StatusLed from './ui/StatusLED.svelte';
 	import StatusTag from './ui/StatusTag.svelte';
+	import MoldTypeIndicator from './ui/MoldTypeIndicator.svelte';
 
 	export let moldingMachineProps = {
 		id: 'molding001',
@@ -68,6 +69,7 @@
 				<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
 				<CyclePerformanceIndicator {...performanceIndicatorProps} />
 				<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
+				<MoldTypeIndicator class='w-40 h-auto my-2' moldType='full'/>
 
 				<Collapsible.Content class="space-y-2">
 					<Tabs.Root value="details" class="w-full">
