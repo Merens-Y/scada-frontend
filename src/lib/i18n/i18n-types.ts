@@ -97,37 +97,37 @@ type RootTranslation = {
 	}
 	performanceIndicator: {
 		/**
-		 * C​u​r​r​e​n​t​ ​c​y​c​l​e​ ​t​i​m​e
+		 * C​u​r​r​e​n​t
 		 */
 		currentTime: string
 		/**
-		 * L​a​s​t​ ​c​y​c​l​e​ ​t​i​m​e
+		 * L​a​s​t
 		 */
 		lastTime: string
 		/**
-		 * I​d​e​a​l​ ​c​y​c​l​e​ ​t​i​m​e
+		 * I​d​e​a​l
 		 */
 		idealTime: string
 		/**
-		 * M​a​x​i​m​u​m​ ​c​y​c​l​e​ ​t​i​m​e
+		 * M​a​x​i​m​u​m
 		 */
 		maximumTime: string
 		/**
-		 * C​u​r​r​e​n​t​ ​/​ ​L​a​s​t​ ​c​y​c​l​e​ ​t​i​m​e
+		 * C​y​c​l​e​ ​t​i​m​e​s
 		 */
 		legend: string
 	}
 	machineHealthBar: {
 		/**
-		 * T​o​t​a​l​ ​c​y​c​l​e​s
+		 * T​o​t​a​l
 		 */
 		totalCycles: string
 		/**
-		 * I​d​e​a​l​ ​c​y​c​l​e​s
+		 * I​d​e​a​l
 		 */
 		idealCycles: string
 		/**
-		 * M​a​x​i​m​u​m​ ​c​y​c​l​e​s
+		 * M​a​x​i​m​u​m
 		 */
 		maximumCycles: string
 		/**
@@ -248,37 +248,37 @@ export type TranslationFunctions = {
 	}
 	performanceIndicator: {
 		/**
-		 * Current cycle time
+		 * Current
 		 */
 		currentTime: () => LocalizedString
 		/**
-		 * Last cycle time
+		 * Last
 		 */
 		lastTime: () => LocalizedString
 		/**
-		 * Ideal cycle time
+		 * Ideal
 		 */
 		idealTime: () => LocalizedString
 		/**
-		 * Maximum cycle time
+		 * Maximum
 		 */
 		maximumTime: () => LocalizedString
 		/**
-		 * Current / Last cycle time
+		 * Cycle times
 		 */
 		legend: () => LocalizedString
 	}
 	machineHealthBar: {
 		/**
-		 * Total cycles
+		 * Total
 		 */
 		totalCycles: () => LocalizedString
 		/**
-		 * Ideal cycles
+		 * Ideal
 		 */
 		idealCycles: () => LocalizedString
 		/**
-		 * Maximum cycles
+		 * Maximum
 		 */
 		maximumCycles: () => LocalizedString
 		/**

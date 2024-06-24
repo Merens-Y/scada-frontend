@@ -69,7 +69,7 @@
 				<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
 				<MoldTypeIndicator class='w-40 h-auto my-2' moldType='bottom'/>
 				<MachineHealthBar {...healthBarProps} />
-				<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
+				
 
 				<Collapsible.Content class="space-y-2">
 					<Tabs.Root value="details" class="w-full">

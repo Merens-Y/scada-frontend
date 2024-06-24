@@ -30,16 +30,16 @@ const es = {
 		man: 'Man'
 	},
 	performanceIndicator: {
-		currentTime: 'Tiempo de ciclo actual',
-		lastTime: 'Tiempo de ciclo pasado',
-		idealTime: 'Tiempo de ciclo Ideal',
-		maximumTime: 'Tiempo de ciclo Máximo',
-		legend: 'Tiempo de ciclo Actual / Pasado',
+		currentTime: 'Actual',
+		lastTime: 'Pasado',
+		idealTime: 'Ideal',
+		maximumTime: 'Máximo',
+		legend: 'Tiempos de ciclo',
 	},
 	machineHealthBar: {
-		totalCycles: 'Ciclos totales',
-		idealCycles: 'Ciclos ideales',
-		maximumCycles: 'Ciclos máximos',
+		totalCycles: 'Total',
+		idealCycles: 'Ideal',
+		maximumCycles: 'Máximo',
 		legend: 'Ciclos desde mantenimiento',
 	},
 	machineContextMenu: {

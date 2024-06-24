@@ -38,6 +38,7 @@
 <Tooltip.Root>
 	<Tooltip.Trigger asChild let:builder>
 		<div class="progress-container" use:builder.action {...builder}><progress value={$progress} class="h-1 {style}" /></div>
+		<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
 	</Tooltip.Trigger>
 	<Tooltip.Content class='bg-muted/75' side="top">
 		<div class="flex text-xs divide-x-4 divide-dotted divide-slate-800/25 dark:divide-slate-50/25">
