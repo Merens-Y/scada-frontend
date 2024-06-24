@@ -114,6 +114,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
 	</Tooltip.Trigger>
 	<Tooltip.Content class='bg-muted/75' side="top">
 		<div class="flex text-xs divide-x-4 divide-dotted divide-slate-800/25 dark:divide-slate-50/25">
