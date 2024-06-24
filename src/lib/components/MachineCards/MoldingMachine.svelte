@@ -53,7 +53,7 @@
 	<Collapsible.Root class="w-full">
 		<ContextMenu.Trigger>
 			<div
-				class="max-w-fit flex-col select-none cursor-pointer rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]"
+				class="max-w-fit flex-col select-none cursor-default rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]"
 			>
 				<div class="flex w-full gap-x-1 mb-4 h-auto">
 					<div class="flex-1 grow text-md uppercase">
@@ -65,11 +65,11 @@
 					<StatusTag class="flex-none" {...tagProps} />
 					<StatusLed class="flex-none" {...ledProps} />
 				</div>
-				<MachineHealthBar {...healthBarProps} />
-				<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
 				<CyclePerformanceIndicator {...performanceIndicatorProps} />
 				<div class="text-xs md:text-sm text-center">{$LL.performanceIndicator.legend()}</div>
-				<MoldTypeIndicator class='w-40 h-auto my-2' moldType='full'/>
+				<MoldTypeIndicator class='w-40 h-auto my-2' moldType='bottom'/>
+				<MachineHealthBar {...healthBarProps} />
+				<div class="text-xs md:text-sm text-center">{$LL.machineHealthBar.legend()}</div>
 
 				<Collapsible.Content class="space-y-2">
 					<Tabs.Root value="details" class="w-full">
