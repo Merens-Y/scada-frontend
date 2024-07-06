@@ -163,6 +163,16 @@ type RootTranslation = {
 		 */
 		recipe: string
 	}
+	moldTypeIndicator: {
+		/**
+		 * T​o​p
+		 */
+		top: string
+		/**
+		 * B​o​t​t​o​m
+		 */
+		bottom: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -313,6 +323,16 @@ export type TranslationFunctions = {
 		 * Recipe
 		 */
 		recipe: () => LocalizedString
+	}
+	moldTypeIndicator: {
+		/**
+		 * Top
+		 */
+		top: () => LocalizedString
+		/**
+		 * Bottom
+		 */
+		bottom: () => LocalizedString
 	}
 }
 

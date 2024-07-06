@@ -51,6 +51,10 @@ const en = {
 		details: 'Details',
 		recipe: 'Recipe',
 	},
+	moldTypeIndicator: {
+		top: 'Top',
+		bottom: 'Bottom',
+	},
 } satisfies BaseTranslation
 
 export default en

@@ -52,6 +52,10 @@ const es = {
 		details: 'Detalles',
 		recipe: 'Receta',
 	},
+	moldTypeIndicator: {
+		top: 'Tapa',
+		bottom: 'Fondo',
+	},
 } satisfies Translation;
 
 export default es;

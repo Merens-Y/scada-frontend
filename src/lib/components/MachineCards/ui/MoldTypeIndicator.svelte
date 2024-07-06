@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { LL } from '$lib/i18n/i18n-svelte';
+
 	type MoldPartStates = 'top' | 'bottom' | 'full';
 	let klass: string = '';
 
 	export { klass as class };
 	export let moldPart: MoldPartStates;
+	export let moldUnits: Number = 4;
 
 	const disabledStyles = {
 		light: {
@@ -89,13 +92,13 @@
 </div>
 <div class="flex mx-1 mt-0 mb-2">
 	<div class="flex-1"></div>
-	<div class="w-20 md:w-28 text-center font-mono text-xs uppercase rounded-sm bg-slate-200 dark:bg-slate-500 shadow-inner">
+	<div class="w-20 shrink md:w-32 px-2 py-1 text-center font-mono text-xs uppercase rounded-sm bg-slate-200 dark:bg-slate-500 shadow-inner">
 		{#if moldPart === 'bottom'}
-			<p>Bottom</p>
+			<p>{$LL.moldTypeIndicator.bottom()} ({moldUnits})</p>
 		{:else if moldPart === 'top'}
-			<p>Top</p>
+			<p>{$LL.moldTypeIndicator.top()} ({moldUnits})</p>
 		{:else}
-			<p>Top + Bottom</p>
+			<p>{$LL.moldTypeIndicator.top()} + {$LL.moldTypeIndicator.bottom()} ({moldUnits})</p>
 		{/if}
 	</div>
 	<div class="flex-1"></div>
