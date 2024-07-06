@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	type MachineStatus = 'disconnected' | 'running' | 'stopped';
 	// Props
 	let klass: string = '';
 	export { klass as class };
 	export let isRunning: boolean = false;
 	export let isDisconnected: boolean = true;
 	// State Management
-	let state = 'disconnected'; // Default to disconnected state
+	let state: MachineStatus = 'disconnected'; // Default to disconnected state
 
 	function updateState() {
 		if (isDisconnected) {

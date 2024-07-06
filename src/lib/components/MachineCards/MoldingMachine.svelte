@@ -11,7 +11,8 @@
 	import * as Tabs from '$lib/components/ui/tabs';
 	import { Button } from '$lib/components/ui/button';
 	// Lucide icons
-	import ChevronsUpDown from 'lucide-svelte/icons/chevrons-up-down';
+	import ChevronsUp from 'lucide-svelte/icons/chevrons-up';
+	import ChevronsDown from 'lucide-svelte/icons/chevrons-down';
 	// Custom Machine Card widget elements
 	import CyclePerformanceIndicator from './ui/CyclePerformanceIndicator.svelte';
 	import MachineHealthBar from './ui/MachineHealthBar.svelte';
@@ -23,6 +24,7 @@
 		id: 'molding001',
 		customName: ''
 	};
+	let detailedView = false;
 	// function that will be called when the button is clicked, it will loop through ledProps and then flip the booleans.
 	function randomizeMachineProps() {
 		return;
@@ -50,7 +52,7 @@
 </script>
 
 <ContextMenu.Root>
-	<Collapsible.Root class="w-full">
+	<Collapsible.Root class="w-full" bind:open={detailedView}>
 		<ContextMenu.Trigger>
 			<div
 				class="max-w-fit flex-col select-none cursor-default rounded-lg border bg-card text-card-foreground gap-4 m-2 p-4 shadow sm:w-[350px] md:w-[400px] md:shadow-lg lg:w-[450px]"
@@ -66,7 +68,7 @@
 					<StatusLed class="flex-none" {...ledProps} />
 				</div>
 				<CyclePerformanceIndicator {...performanceIndicatorProps} />
-				<MoldTypeIndicator class='w-40 h-auto my-2' moldPart='bottom'/>
+				<MoldTypeIndicator class="w-20 md:w-40 h-auto my-2" moldPart="full" />
 				<MachineHealthBar {...healthBarProps} />
 
 				<Collapsible.Content class="space-y-2">
@@ -91,7 +93,11 @@
 					<Collapsible.Trigger asChild let:builder>
 						<div class="flex-1"></div>
 						<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
-							<ChevronsUpDown class="h-4 w-4" />
+							{#if detailedView}
+								<ChevronsUp class="h-4 w-4" />
+							{:else}
+								<ChevronsDown class="h-4 w-4" />
+							{/if}
 							<span class="sr-only">Open details</span>
 						</Button>
 						<div class="flex-1"></div>
