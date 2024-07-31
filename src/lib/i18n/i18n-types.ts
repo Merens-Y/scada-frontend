@@ -173,6 +173,52 @@ type RootTranslation = {
 		 */
 		bottom: string
 	}
+	auth: {
+		/**
+		 * C​r​e​a​t​e​ ​a​n​ ​a​c​c​o​u​n​t
+		 */
+		register: string
+		/**
+		 * E​n​t​e​r​ ​y​o​u​r​ ​n​a​m​e​,​ ​e​m​a​i​l​ ​a​n​d​ ​p​a​s​s​w​o​r​d​ ​b​e​l​o​w​ ​t​o​ ​c​r​e​a​t​e​ ​y​o​u​r​ ​a​c​c​o​u​n​t
+		 */
+		registerInstructions: string
+		/**
+		 * E​n​t​e​r​ ​y​o​u​r​ ​r​e​g​i​s​t​e​r​e​d​ ​e​m​a​i​l​ ​a​n​d​ ​p​a​s​s​w​o​r​d​ ​b​e​l​o​w​ ​t​o​ ​l​o​g​i​n​ ​w​i​t​h​ ​y​o​u​r​ ​a​c​c​o​u​n​t
+		 */
+		loginInstructions: string
+		/**
+		 * L​o​g​i​n
+		 */
+		login: string
+		/**
+		 * N​a​m​e
+		 */
+		fieldName: string
+		/**
+		 * T​h​i​s​ ​i​s​ ​y​o​u​r​ ​p​u​b​l​i​c​ ​d​i​s​p​l​a​y​ ​n​a​m​e​.
+		 */
+		fieldDescriptionName: string
+		/**
+		 * E​m​a​i​l
+		 */
+		fieldEmail: string
+		/**
+		 * E​m​a​i​l​ ​a​d​d​r​e​s​s​ ​u​s​e​d​ ​f​o​r​ ​v​a​l​i​d​a​t​i​o​n​ ​a​n​d​ ​n​o​t​i​f​i​c​a​t​i​o​n​s​ ​i​n​s​i​d​e​ ​t​h​e​ ​a​p​p​l​i​c​a​t​i​o​n​.​ ​I​t​'​s​ ​p​r​e​f​e​r​r​e​d​ ​t​h​a​t​ ​y​o​u​ ​u​s​e​ ​y​o​u​r​ ​c​o​m​p​a​n​y​ ​e​m​a​i​l​.
+		 */
+		fieldDescriptionEmail: string
+		/**
+		 * P​a​s​s​w​o​r​d
+		 */
+		fieldPassword: string
+		/**
+		 * E​n​s​u​r​e​ ​t​h​e​ ​p​a​s​s​w​o​r​d​ ​i​s​ ​a​t​ ​l​e​a​s​t​ ​8​ ​c​h​a​r​a​c​t​e​r​s​.
+		 */
+		fieldDescriptionPassword: string
+		/**
+		 * S​u​b​m​i​t
+		 */
+		formSubmit: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -333,6 +379,52 @@ export type TranslationFunctions = {
 		 * Bottom
 		 */
 		bottom: () => LocalizedString
+	}
+	auth: {
+		/**
+		 * Create an account
+		 */
+		register: () => LocalizedString
+		/**
+		 * Enter your name, email and password below to create your account
+		 */
+		registerInstructions: () => LocalizedString
+		/**
+		 * Enter your registered email and password below to login with your account
+		 */
+		loginInstructions: () => LocalizedString
+		/**
+		 * Login
+		 */
+		login: () => LocalizedString
+		/**
+		 * Name
+		 */
+		fieldName: () => LocalizedString
+		/**
+		 * This is your public display name.
+		 */
+		fieldDescriptionName: () => LocalizedString
+		/**
+		 * Email
+		 */
+		fieldEmail: () => LocalizedString
+		/**
+		 * Email address used for validation and notifications inside the application. It's preferred that you use your company email.
+		 */
+		fieldDescriptionEmail: () => LocalizedString
+		/**
+		 * Password
+		 */
+		fieldPassword: () => LocalizedString
+		/**
+		 * Ensure the password is at least 8 characters.
+		 */
+		fieldDescriptionPassword: () => LocalizedString
+		/**
+		 * Submit
+		 */
+		formSubmit: () => LocalizedString
 	}
 }
 

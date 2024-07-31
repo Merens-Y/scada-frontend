@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { LL } from '$lib/i18n/i18n-svelte';
+
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 
@@ -19,17 +21,17 @@
 <form method="POST" use:enhance action={route('logInUser /auth/login')}>
 	<Form.Field {form} name="email">
 		<Form.Control let:attrs>
-			<Form.Label>Email</Form.Label>
+			<Form.Label>{$LL.auth.fieldEmail()}</Form.Label>
 			<Input {...attrs} type='email' bind:value={$formData.email} />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Field {form} name="password">
 		<Form.Control let:attrs>
-			<Form.Label>Password</Form.Label>
+			<Form.Label>{$LL.auth.fieldPassword()}</Form.Label>
 			<Input {...attrs} type='password' bind:value={$formData.password} />
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
-	<Form.Button>Submit</Form.Button>
+	<Form.Button>{$LL.auth.formSubmit()}</Form.Button>
 </form>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { LL } from '$lib/i18n/i18n-svelte';
+
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 
@@ -19,31 +21,31 @@
 <form method="POST" use:enhance action={route('registerUser /auth/register')}>
 	<Form.Field {form} name="name">
 		<Form.Control let:attrs>
-			<Form.Label>Name</Form.Label>
+			<Form.Label>{$LL.auth.fieldName()}</Form.Label>
 			<Input {...attrs} bind:value={$formData.name} />
 		</Form.Control>
-		<Form.Description>This is your public display name.</Form.Description>
+		<Form.Description>{$LL.auth.fieldDescriptionName()}</Form.Description>
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Field {form} name="email">
 		<Form.Control let:attrs>
-			<Form.Label>Email</Form.Label>
+			<Form.Label>{$LL.auth.fieldEmail()}</Form.Label>
 			<Input {...attrs} type='email' bind:value={$formData.email} />
 		</Form.Control>
 		<Form.Description
-			>Email address used for validation and notifications inside the application. It's preferred that you use your company email.</Form.Description
+			>{$LL.auth.fieldDescriptionEmail()}</Form.Description
 		>
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Field {form} name="password">
 		<Form.Control let:attrs>
-			<Form.Label>Password</Form.Label>
+			<Form.Label>{$LL.auth.fieldPassword()}</Form.Label>
 			<Input {...attrs} type='password' bind:value={$formData.password} />
 		</Form.Control>
 		<Form.Description
-			>Ensure the password is at least 8 characters.</Form.Description
+			>{$LL.auth.fieldDescriptionPassword()}</Form.Description
 		>
 		<Form.FieldErrors />
 	</Form.Field>
-	<Form.Button>Submit</Form.Button>
+	<Form.Button>{$LL.auth.formSubmit()}</Form.Button>
 </form>

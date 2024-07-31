@@ -56,6 +56,19 @@ const es = {
 		top: 'Tapa',
 		bottom: 'Fondo',
 	},
+	auth: {
+		register: 'Crear una cuenta',
+		registerInstructions: 'Ingrese su nombre, correo electrónico y contraseña a continuación para crear su cuenta',
+		loginInstructions: 'Ingrese su correo electrónico y contraseña registrados a continuación para iniciar sesión con su cuenta',
+		login: 'Iniciar sesión',
+		fieldName: 'Nombre',
+		fieldDescriptionName: 'Este será su nombre de usuario dentro de la aplicación.',
+		fieldEmail: 'Correo electrónico',
+		fieldDescriptionEmail: 'Dirección de correo electrónico utilizada para validación y notificaciones dentro de la aplicación. Se prefiere que utilice su correo organizacional.',
+		fieldPassword: 'Contraseña',
+		fieldDescriptionPassword: 'Asegúrese de que la contraseña tenga al menos 8 caracteres.',
+		formSubmit: 'Ingresar',
+	},
 } satisfies Translation;
 
 export default es;

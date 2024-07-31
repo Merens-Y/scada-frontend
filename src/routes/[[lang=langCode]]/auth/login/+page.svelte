@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { LL } from '$lib/i18n/i18n-svelte';
+
 	import LoginForm from '$lib/components/forms/LoginForm.svelte';
 	import { Button } from '$lib/components/ui/button';
 
@@ -16,14 +18,14 @@
 		variant="secondary"
 		class="absolute right-4 top-4 md:right-8 md:top-8"
 	>
-		Register
+		{$LL.auth.register()}
 	</Button>
 	<div class="lg:p-8">
 		<div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
 			<div class="flex flex-col space-y-2 text-center">
-				<h1 class="text-2xl font-semibold tracking-tight">Login</h1>
+				<h1 class="text-2xl font-semibold tracking-tight">{$LL.auth.login()}</h1>
 				<p class="text-muted-foreground text-sm">
-					Enter your registered email and password below to login with your account
+					{$LL.auth.loginInstructions()}
 				</p>
 			</div>
 			<LoginForm data={data.form} />

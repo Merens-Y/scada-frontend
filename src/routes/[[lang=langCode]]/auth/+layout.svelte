@@ -24,7 +24,7 @@
 		<enhanced:img
 			src={currentPageImage?.src}
 			alt={currentPageImage?.alt}
-			class="hidden object-cover rounded shadow-md md:block"
+			class="hidden object-cover grayscale rounded shadow-md blur hover:blur-none hover:grayscale-0 md:block mt-4 ml-4"
 		/>
 	<section class="md:max-w-xl">
 		<slot />
