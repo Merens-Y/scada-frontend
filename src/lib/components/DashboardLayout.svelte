@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { route } from '$lib/ROUTES';
     // import translation functions
 	import { LL } from '$lib/i18n/i18n-svelte';
     // import components
@@ -15,24 +16,24 @@
 	import BookOpenText from 'lucide-svelte/icons/book-open-text';
 	import Settings from 'lucide-svelte/icons/settings';
     // import shadcn-svelte components
-	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 
 	const dashboardElements = [
-		{ name: $LL.navbar.machines(), href: '/machines', icon: Factory },
-		{ name: $LL.navbar.database(), href: '/machine-database', icon: Database },
-		{ name: $LL.navbar.userManual(), href: '/user-manual', icon: BookOpenText },
-		{ name: $LL.navbar.configuration(), href: '/configuration', icon: Settings }
+		{ name: $LL.navbar.machines(), href: route('/dashboard/machines'), icon: Factory },
+		{ name: $LL.navbar.database(), href: route('/dashboard/machine-database'), icon: Database },
+		{ name: $LL.navbar.userManual(), href: route('/dashboard/user-manual'), icon: BookOpenText },
+		{ name: $LL.navbar.configuration(), href: route('/dashboard/configuration'), icon: Settings }
 	];
+	export let user;
 </script>
 
 <div class="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
 	<div class="hidden border-r bg-muted/40 md:block">
 		<div class="flex h-full max-h-screen flex-col gap-2">
 			<div class="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-				<a href="/" class="flex items-center gap-2 font-semibold">
+				<a href={ route('/dashboard')} class="flex items-center gap-2 font-semibold">
 					<SvelteScada class="h-auto w-16 lg:w-20" />
 				</a>
 				<Button variant="outline" size="icon" class="ml-auto h-8 w-8">
@@ -95,7 +96,7 @@
 			</div>
             <LocaleSelector />
             <DarkmodeSelector />
-			<UserNav />
+			<UserNav {...user} />
 		</header>
 		<main class="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
 			<slot />

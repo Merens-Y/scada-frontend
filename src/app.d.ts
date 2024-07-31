@@ -7,8 +7,15 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			locale: Locales
-			LL: TranslationFunctions
+			locale: Locales;
+			LL: TranslationFunctions;
+			user: import('lucia').User | null;
+			session: import('lucia').Session | null;
+		}
+		interface PageData {
+			pageMetaTags?: MetaTagsProps;
+			isUserLoggedIn: boolean;
+			flash?: { type: 'success' | 'error'; message: string };
 		}
 		// interface Locals {}
 		// interface PageData {}

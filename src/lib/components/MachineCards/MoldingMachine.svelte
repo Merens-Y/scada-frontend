@@ -68,7 +68,7 @@
 					<StatusLed class="flex-none" {...ledProps} />
 				</div>
 				<CyclePerformanceIndicator {...performanceIndicatorProps} />
-				<MoldTypeIndicator class="w-20 md:w-40 h-auto my-2" moldPart="full" />
+				<MoldTypeIndicator class="w-20 md:w-40 h-auto my-2" moldPiece={"full"} moldUnits={5} />
 				<MachineHealthBar {...healthBarProps} />
 
 				<Collapsible.Content class="space-y-2">
