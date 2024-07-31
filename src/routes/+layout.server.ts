@@ -8,21 +8,6 @@ import { createBaseMetaTags } from '$lib/utils/metaTags';
 
 const langParam = 'lang';
 
-// export const load = (async (event) => {
-// 	// Using a GET var "lang" to change locale
-// 	const newLocale = event.url.searchParams.get(langParam);
-// 	if (newLocale) {
-// 		event.cookies.set(langParam, newLocale, { path: '/' });
-// 		event.url.searchParams.delete(langParam);
-// 		// Redirect to remove the GET var
-// 		throw redirect(303, event.url.toString());
-// 	}
-
-// 	// Get the locale from the cookie
-// 	const locale = detectLocale(() => [event.cookies.get(langParam) ?? '']);
-// 	return { locale };
-// }) satisfies LayoutServerLoad;
-
 export const load = loadFlash(async ({ cookies, url, locals: { session } }) => {
 	const baseMetaTags = createBaseMetaTags(url);
 	// Using a GET var "lang" to change locale

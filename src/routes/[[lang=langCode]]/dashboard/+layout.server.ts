@@ -14,7 +14,7 @@ export const load = (async ({ locals: { user }, cookies }) => {
 			},
 			cookies
 		);
-	}
+	};
 
     return {
         loggedInUserName: user.name,
