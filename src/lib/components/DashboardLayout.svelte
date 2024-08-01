@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { route } from '$lib/ROUTES';
 	// import translation functions
 	import { LL } from '$lib/i18n/i18n-svelte';
@@ -10,15 +11,15 @@
 	// import icons
 	import Bell from 'lucide-svelte/icons/bell';
 	import Menu from 'lucide-svelte/icons/menu';
-	import Search from 'lucide-svelte/icons/search';
 	import Factory from 'lucide-svelte/icons/factory';
 	import Database from 'lucide-svelte/icons/database';
 	import BookOpenText from 'lucide-svelte/icons/book-open-text';
 	import Settings from 'lucide-svelte/icons/settings';
 	// import shadcn-svelte components
 	import { Button } from '$lib/components/ui/button/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
+
+	let sheetOpen = false;
 
 	const dashboardElements = [
 		{ name: $LL.navbar.machines(), href: route('/dashboard/machines'), icon: Factory },
@@ -46,7 +47,11 @@
 					{#each dashboardElements as dashboardElement (dashboardElement.name)}
 						<a
 							href={dashboardElement.href}
-							class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-muted"
+							class="flex items-center gap-3 rounded-lg px-3 py-2 {$page.url.pathname.includes(
+								dashboardElement.href
+							)
+								? 'bg-accent text-primary/75'
+								: ''} text-muted-foreground transition-all hover:text-primary hover:bg-muted"
 						>
 							<svelte:component this={dashboardElement.icon} class="h-4 w-4" />
 							{dashboardElement.name}
@@ -59,7 +64,7 @@
 	<div class="flex flex-col w-full">
 		<header class="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px]">
 			<div class="flex-initial">
-				<Sheet.Root>
+				<Sheet.Root bind:open={sheetOpen}>
 					<Sheet.Trigger asChild let:builder>
 						<Button variant="outline" size="icon" class="shrink-0 lg:hidden" builders={[builder]}>
 							<Menu class="h-5 w-5" />
@@ -68,13 +73,22 @@
 					</Sheet.Trigger>
 					<Sheet.Content side="left" class="flex flex-col">
 						<nav class="grid gap-2 text-lg font-medium">
-							<a href="/" class="flex items-center gap-2 text-lg font-semibold">
+							<a
+								on:click={() => (sheetOpen = false)}
+								href={route('/dashboard')}
+								class="flex items-center gap-2 text-lg font-semibold"
+							>
 								<SvelteScada class="h-auto w-16 py-2" />
 							</a>
 							{#each dashboardElements as dashboardElement (dashboardElement.name)}
 								<a
+									on:click={() => (sheetOpen = false)}
 									href={dashboardElement.href}
-									class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+									class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 {$page.url.pathname.includes(
+										dashboardElement.href
+									)
+										? 'bg-accent text-primary/75'
+										: ''} text-muted-foreground hover:text-foreground"
 								>
 									<svelte:component this={dashboardElement.icon} class="h-5 w-5" />
 									{dashboardElement.name}
