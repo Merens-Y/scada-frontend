@@ -45,6 +45,7 @@ const en = {
 		details: 'Details',
 		cycleHistory: 'Cycle history',
 		renameMachine: 'Rename machine',
+		disableMachine: 'Disable machine',
 		deleteMachine: 'Delete machine',
 	},
 	machineCollapsibleTabs: {

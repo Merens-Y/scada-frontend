@@ -46,6 +46,7 @@ const es = {
 		details: 'Detalles',
 		cycleHistory: 'Historial de ciclos',
 		renameMachine: 'Renombrar máquina',
+		disableMachine: 'Desactivar máquina',
 		deleteMachine: 'Borrar máquina',
 	},
 	machineCollapsibleTabs: {

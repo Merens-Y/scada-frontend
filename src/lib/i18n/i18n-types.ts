@@ -149,6 +149,10 @@ type RootTranslation = {
 		 */
 		renameMachine: string
 		/**
+		 * D​i​s​a​b​l​e​ ​m​a​c​h​i​n​e
+		 */
+		disableMachine: string
+		/**
 		 * D​e​l​e​t​e​ ​m​a​c​h​i​n​e
 		 */
 		deleteMachine: string
@@ -355,6 +359,10 @@ export type TranslationFunctions = {
 		 * Rename machine
 		 */
 		renameMachine: () => LocalizedString
+		/**
+		 * Disable machine
+		 */
+		disableMachine: () => LocalizedString
 		/**
 		 * Delete machine
 		 */
