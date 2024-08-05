@@ -22,6 +22,15 @@ const PAGES = {
   "/dashboard/configuration": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration`
   },
+  "/dashboard/configuration/account": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration/account`
+  },
+  "/dashboard/configuration/appearance": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration/appearance`
+  },
+  "/dashboard/configuration/notifications": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration/notifications`
+  },
   "/dashboard/machine-database": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/machine-database`
   },
@@ -55,6 +64,18 @@ const ACTIONS = {
   },
   "deleteAllUsers /dashboard": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/dashboard?/deleteAllUsers`
+  },
+  "default /dashboard/configuration": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration`
+  },
+  "default /dashboard/configuration/account": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration/account`
+  },
+  "default /dashboard/configuration/appearance": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration/appearance`
+  },
+  "default /dashboard/configuration/notifications": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/dashboard/configuration/notifications`
   }
 }
 
@@ -162,9 +183,9 @@ export function route<T extends keyof AllTypes>(key: T, ...params: any[]): strin
 * ```
 */
 export type KIT_ROUTES = {
-  PAGES: { '/': never, '/auth/login': 'lang', '/auth/register': 'lang', '/dashboard': 'lang', '/dashboard/configuration': 'lang', '/dashboard/machine-database': 'lang', '/dashboard/machines': 'lang', '/dashboard/user-manual': 'lang' }
+  PAGES: { '/': never, '/auth/login': 'lang', '/auth/register': 'lang', '/dashboard': 'lang', '/dashboard/configuration': 'lang', '/dashboard/configuration/account': 'lang', '/dashboard/configuration/appearance': 'lang', '/dashboard/configuration/notifications': 'lang', '/dashboard/machine-database': 'lang', '/dashboard/machines': 'lang', '/dashboard/user-manual': 'lang' }
   SERVERS: Record<string, never>
-  ACTIONS: { 'logInUser /auth/login': 'lang', 'registerUser /auth/register': 'lang', 'logout /dashboard': 'lang', 'deleteAllUsers /dashboard': 'lang' }
+  ACTIONS: { 'logInUser /auth/login': 'lang', 'registerUser /auth/register': 'lang', 'logout /dashboard': 'lang', 'deleteAllUsers /dashboard': 'lang', 'default /dashboard/configuration': 'lang', 'default /dashboard/configuration/account': 'lang', 'default /dashboard/configuration/appearance': 'lang', 'default /dashboard/configuration/notifications': 'lang' }
   LINKS: Record<string, never>
   Params: { lang: never }
 }

@@ -194,9 +194,9 @@
 				</Dialog.Description>
 			{/if}
 		</Dialog.Header>
-		<div class="grid gap-1 grid-cols-1 lg:grid-cols-2 place-items-stretch ">
-			<div class="grid gap-1 grid-cols-1 place-items-stretch">
-				<div>
+		<div class="grid gap-x-2 gap-y-1 grid-cols-1 lg:grid-cols-2 place-items-stretch divide-y lg:divide-x lg:divide-y-0">
+			<div class="grid gap-1 grid-cols-1 place-items-stretch divide-y">
+				<div class="p-2">
 					<Dialog.Title>Status:</Dialog.Title>
 					<Table.Root class="my-2">
 						<Table.Body>
@@ -210,7 +210,7 @@
 						</Table.Body>
 					</Table.Root>
 				</div>
-				<div>
+				<div class="p-2">
 					<Dialog.Title>Timers:</Dialog.Title>
 					<Table.Root class="my-2">
 						<Table.Body>
@@ -225,7 +225,7 @@
 					</Table.Root>
 				</div>
 			</div>
-			<div class="order-last">
+			<div class="order-last p-2">
 				<Dialog.Title>Recipe:</Dialog.Title>
 				<Table.Root class="my-2">
 					<Table.Body>

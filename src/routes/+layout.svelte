@@ -20,13 +20,12 @@
 	}
 	$: metaTags = extend(true, {}, data.baseMetaTags, $page.data.pageMetaTags);
 </script>
+
 <MetaTags {...metaTags} />
 
 <Toaster richColors closeButton position={'top-center'} />
 <ModeWatcher />
 
-<div class="flex-col w-full">
-	<main class="">
-		<slot />
-	</main>
-</div>
+<main>
+	<slot />
+</main>
