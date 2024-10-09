@@ -16,7 +16,7 @@ export default defineConfig({
 	schema: 'src/lib/user-database/schema.ts',
 	out: './drizzleMigrations',
 	dbCredentials: {
-		url: USER_DATABASE_URL
+		url: process.env.USER_DATABASE_URL!
 	}
 });
 // DEPRECATED AFTER UPDATING TO drizzle-kit 0.23, IF YOU MUST downgrade then use this:
