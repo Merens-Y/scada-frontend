@@ -2,20 +2,31 @@
 	import { toast } from 'svelte-sonner';
 	import { writable } from 'svelte/store';
 	import * as Table from '$lib/components/ui/table';
-	import { Button } from '$lib/components/ui/button'
+	import { Button } from '$lib/components/ui/button';
+	import ScrollArea from '$lib/components/ui/scroll-area/scroll-area.svelte';
 
 	import {
 		createColumnHelper,
 		createSvelteTable,
 		flexRender,
 		getCoreRowModel,
+		getSortedRowModel,
 		getFilteredRowModel,
 		getPaginationRowModel
 	} from '@tanstack/svelte-table';
 
-	import type { ColumnDef, TableOptions, FilterFn } from '@tanstack/svelte-table';
+	import type {
+		ColumnDef,
+		TableOptions,
+		FilterFn,
+		OnChangeFn,
+		ColumnOrderState,
+		ColumnPinningState,
+		VisibilityState
+	} from '@tanstack/svelte-table';
 
 	import { rankItem } from '@tanstack/match-sorter-utils';
+	import { Column } from 'drizzle-orm';
 	// import { info } from 'console';
 
 	type MoldingMachineRecipe = {
@@ -32,7 +43,7 @@
 	};
 	type MoldingMachineMold = {
 		moldID: string;
-		name: string;
+		moldName: string;
 		moldType: string;
 		moldProductionQuantity: number;
 		idealCycleTime: number;
@@ -50,7 +61,7 @@
 		recipe: MoldingMachineRecipe;
 		mold: MoldingMachineMold;
 	};
-
+	// Array of objects of type MoldingMachineCycle.
 	const moldingMachineCycles: MoldingMachineCycle[] = [
 		{
 			cycleID: 1,
@@ -72,9 +83,9 @@
 				vacuumCooling: 30
 			},
 			mold: {
-				moldID: 'moldX',
-				name: 'Mold X',
-				moldType: 'injection',
+				moldID: '002',
+				moldName: '20 lb',
+				moldType: 'Top',
 				moldProductionQuantity: 100,
 				idealCycleTime: 60,
 				maxCycleTime: 75,
@@ -102,9 +113,9 @@
 				vacuumCooling: 25
 			},
 			mold: {
-				moldID: 'moldY',
-				name: 'Mold Y',
-				moldType: 'compression',
+				moldID: '001',
+				moldName: '35 lb',
+				moldType: 'Full',
 				moldProductionQuantity: 120,
 				idealCycleTime: 65,
 				maxCycleTime: 80,
@@ -132,9 +143,9 @@
 				vacuumCooling: 35
 			},
 			mold: {
-				moldID: 'moldZ',
-				name: 'Mold Z',
-				moldType: 'roto',
+				moldID: '003',
+				moldName: '70 lb',
+				moldType: 'Bottom',
 				moldProductionQuantity: 90,
 				idealCycleTime: 70,
 				maxCycleTime: 85,
@@ -146,41 +157,193 @@
 
 	const defaultColumns: ColumnDef<MoldingMachineCycle>[] = [
 		{
-			accessorKey: 'cycleID',
-			cell: (info) => info.getValue(),
-			header: () => 'Cycle ID'
+			header: 'Cycle Data',
+			columns: [
+				{
+					accessorKey: 'cycleID',
+					cell: (info) => info.getValue(),
+					header: () => 'Cycle ID'
+				},
+				{
+					accessorKey: 'cycleTimeStamp',
+					cell: (info) => info.getValue(),
+					header: () => 'Cycle Timestamp'
+				},
+				{
+					accessorKey: 'machineSN',
+					cell: (info) => info.getValue(),
+					header: () => 'Machine Serial Number'
+				},
+				{
+					accessorKey: 'cycleTime',
+					cell: (info) => info.getValue(),
+					header: () => 'Cycle Time'
+				}
+			]
 		},
 		{
-			accessorKey: 'cycleNumber',
-			cell: (info) => info.getValue(),
-			header: () => 'Cycle Number'
+			header: 'Recipe Data',
+			columns: [
+				{
+					accessorKey: 'recipe.recipeID',
+					cell: (info) => info.getValue(),
+					header: () => 'Recipe ID'
+				},
+				{
+					accessorKey: 'recipe.steamFixed',
+					cell: (info) => info.getValue(),
+					header: () => 'Steam Fixed'
+				},
+				{
+					accessorKey: 'recipe.steamMoving',
+					cell: (info) => info.getValue(),
+					header: () => 'Steam Moving'
+				},
+				{
+					accessorKey: 'recipe.drainFixed',
+					cell: (info) => info.getValue(),
+					header: () => 'Drain Fixed'
+				},
+				{
+					accessorKey: 'recipe.drainMoving',
+					cell: (info) => info.getValue(),
+					header: () => 'Drain Moving'
+				},
+				{
+					accessorKey: 'recipe.pressureFixed',
+					cell: (info) => info.getValue(),
+					header: () => 'Pressure Fixed'
+				},
+				{
+					accessorKey: 'recipe.pressureMoving',
+					cell: (info) => info.getValue(),
+					header: () => 'Pressure Moving'
+				},
+				{
+					accessorKey: 'recipe.waterFixed',
+					cell: (info) => info.getValue(),
+					header: () => 'Water Fixed'
+				},
+				{
+					accessorKey: 'recipe.waterMoving',
+					cell: (info) => info.getValue(),
+					header: () => 'Water Moving'
+				},
+				{
+					accessorKey: 'recipe.vacuumCooling',
+					cell: (info) => info.getValue(),
+					header: () => 'Vacuum Cooling'
+				}
+			]
 		},
 		{
-			accessorKey: 'cycleTime',
-			cell: (info) => info.getValue(),
-			header: () => 'Cycle Time'
-		},
-		{
-			accessorKey: 'cycleTimeStamp',
-			cell: (info) => info.getValue(),
-			header: () => 'Cycle Timestamp'
-		},
-		{
-			accessorKey: 'machineID',
-			cell: (info) => info.getValue(),
-			header: () => 'Machine ID'
-		},
-		{
-			accessorKey: 'machineSN',
-			cell: (info) => info.getValue(),
-			header: () => 'Machine Serial Number'
+			header: 'Mold Data',
+			columns: [
+				{
+					accessorKey: 'mold.moldID',
+					cell: (info) => info.getValue(),
+					header: () => 'Mold ID'
+				},
+				{
+					accessorKey: 'mold.moldName',
+					cell: (info) => info.getValue(),
+					header: () => 'Mold Name'
+				},
+				{
+					accessorKey: 'mold.moldType',
+					cell: (info) => info.getValue(),
+					header: () => 'Mold Type'
+				},
+				{
+					accessorKey: 'mold.moldProductionQuantity',
+					cell: (info) => info.getValue(),
+					header: () => 'Mold Production Quantity'
+				},
+				{
+					accessorKey: 'mold.idealCycleTime',
+					cell: (info) => info.getValue(),
+					header: () => 'Ideal Cycle Time'
+				},
+				{
+					accessorKey: 'mold.maxCycleTime',
+					cell: (info) => info.getValue(),
+					header: () => 'Max Cycle Time'
+				},
+				{
+					accessorKey: 'mold.idealCycleCount',
+					cell: (info) => info.getValue(),
+					header: () => 'Ideal Cycle Count'
+				},
+				{
+					accessorKey: 'mold.maxCycleCount',
+					cell: (info) => info.getValue(),
+					header: () => 'Max Cycle Count'
+				}
+			]
 		}
 	];
+
+	let columnOrder: ColumnOrderState = [];
+	const setColumnOrder: OnChangeFn<ColumnOrderState> = (updater) => {
+		if (updater instanceof Function) {
+			columnOrder = updater(columnOrder);
+		} else {
+			columnOrder = updater;
+		}
+		options.update((old) => ({
+			...old,
+			state: {
+				...old.state,
+				columnOrder
+			}
+		}));
+	};
+
+	let columnVisibility: VisibilityState = {};
+	const setColumnVisibility: OnChangeFn<VisibilityState> = (updater) => {
+		if (updater instanceof Function) {
+			columnVisibility = updater(columnVisibility);
+		} else {
+			columnVisibility = updater;
+		}
+		options.update((old) => ({
+			...old,
+			state: {
+				...old.state,
+				columnVisibility
+			}
+		}));
+	};
+
+	let columnPinning: ColumnPinningState = {};
+	const setColumnPinning: OnChangeFn<ColumnPinningState> = (updater) => {
+		if (updater instanceof Function) {
+			columnPinning = updater(columnPinning);
+		} else {
+			columnPinning = updater;
+		}
+		options.update((old) => ({
+			...old,
+			state: {
+				...old.state,
+				columnPinning
+			}
+		}));
+	};
 
 	const options = writable<TableOptions<MoldingMachineCycle>>({
 		data: moldingMachineCycles,
 		columns: defaultColumns,
-		getCoreRowModel: getCoreRowModel()
+		state: {
+			columnOrder,
+			columnVisibility
+		},
+		onColumnOrderChange: setColumnOrder,
+		onColumnVisibilityChange: setColumnVisibility,
+		onColumnPinningChange: setColumnPinning,
+		getCoreRowModel: getCoreRowModel(),
+		getSortedRowModel: getSortedRowModel(),
+		debugTable: true
 	});
 
 	const rerender = () => {
@@ -189,40 +352,60 @@
 			data: moldingMachineCycles
 		}));
 	};
-
 	const table = createSvelteTable(options);
+	// $: stringTable = JSON.stringify($table.getHeaderGroups());
 </script>
 
+<!-- {$table.getAllColumns().map(d => d.id)} -->
+{console.log($table.getState())}
+<div class="inline-block border border-black shadow rounded">
+	<div class="px-1 border-b border-black">
+		<label>
+			<input
+				checked={$table.getIsAllColumnsVisible()}
+				on:change={(e) => {
+					console.info($table.getToggleAllColumnsVisibilityHandler()(e));
+				}}
+				type="checkbox"
+			/>{' '}
+			Toggle All
+		</label>
+	</div>
+	{#each $table.getAllColumns() as column}
+		<div class="px-1">
+			<label>
+				<input
+					checked={column.getIsVisible()}
+					on:change={column.getToggleVisibilityHandler()}
+					type="checkbox"
+				/>{' '}
+				{column.id}
+			</label>
+		</div>
+	{/each}
+</div>
+
+<br />
+
 <Table.Root>
-	<Table.Caption>A list of cycles with its cycle metadata, machine data and recipe data.</Table.Caption>
 	<Table.Header>
-		{#each $table.getHeaderGroups() as headerGroup}
-			<Table.Row>
-				{#each headerGroup.headers as header}
-					<Table.Head>
-						{#if !header.isPlaceholder}
-							<svelte:component
-								this={flexRender(header.column.columnDef.header, header.getContext())}
-							/>
-						{/if}
-					</Table.Head>
-				{/each}
-			</Table.Row>
-		{/each}
+		<Table.Row>
+			<Table.Head></Table.Head>
+		</Table.Row>
 	</Table.Header>
 	<Table.Body>
-		{#each $table.getRowModel().rows as row}
-			<Table.Row>
-				{#each row.getVisibleCells() as cell}
-					<Table.Cell class='text-xs font-mono'>
-						<svelte:component this={flexRender(cell.column.columnDef.cell, cell.getContext())} />
-					</Table.Cell>
-				{/each}
-			</Table.Row>
-		{/each}
+		<Table.Row>
+			<Table.Cell class="text-xs font-mono"></Table.Cell>
+		</Table.Row>
 	</Table.Body>
+</Table.Root>
+
+<!-- special table for small devices -->
+<Table.Root class="md:hidden">
+	<Table.Header></Table.Header>
+	<Table.Body></Table.Body>
 </Table.Root>
 <div class="p-2">
 	<div class="h-4" />
-	<Button on:click={() => rerender()} class="border p-2"> Rerender </Button>
+	<Button on:click={() => rerender()} class="border p-2">Rerender</Button>
 </div>
