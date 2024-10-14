@@ -195,6 +195,14 @@ type RootTranslation = {
 		 */
 		login: string
 		/**
+		 * E​m​a​i​l​ ​V​e​r​i​f​i​c​a​t​i​o​n​ ​C​o​d​e
+		 */
+		verification: string
+		/**
+		 * W​e​l​c​o​m​e​!​ ​T​o​ ​c​o​m​p​l​e​t​e​ ​y​o​u​r​ ​r​e​g​i​s​t​r​a​t​i​o​n​,​ ​p​l​e​a​s​e​ ​e​n​t​e​r​ ​t​h​e​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​c​o​d​e​ ​w​e​'​v​e​ ​s​e​n​t​ ​t​o​ ​y​o​u​r​ ​e​m​a​i​l​:
+		 */
+		verificationInstructions: string
+		/**
 		 * N​a​m​e
 		 */
 		fieldName: string
@@ -218,6 +226,10 @@ type RootTranslation = {
 		 * E​n​s​u​r​e​ ​t​h​e​ ​p​a​s​s​w​o​r​d​ ​i​s​ ​a​t​ ​l​e​a​s​t​ ​8​ ​c​h​a​r​a​c​t​e​r​s​.
 		 */
 		fieldDescriptionPassword: string
+		/**
+		 * V​e​r​i​f​i​c​a​t​i​o​n​ ​C​o​d​e
+		 */
+		fieldVerificationCode: string
 		/**
 		 * S​u​b​m​i​t
 		 */
@@ -406,6 +418,14 @@ export type TranslationFunctions = {
 		 */
 		login: () => LocalizedString
 		/**
+		 * Email Verification Code
+		 */
+		verification: () => LocalizedString
+		/**
+		 * Welcome! To complete your registration, please enter the verification code we've sent to your email:
+		 */
+		verificationInstructions: () => LocalizedString
+		/**
 		 * Name
 		 */
 		fieldName: () => LocalizedString
@@ -429,6 +449,10 @@ export type TranslationFunctions = {
 		 * Ensure the password is at least 8 characters.
 		 */
 		fieldDescriptionPassword: () => LocalizedString
+		/**
+		 * Verification Code
+		 */
+		fieldVerificationCode: () => LocalizedString
 		/**
 		 * Submit
 		 */

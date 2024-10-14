@@ -10,11 +10,17 @@
  */
 const PAGES = {
   "/": `/`,
+  "/auth/email-verification": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/auth/email-verification`
+  },
   "/auth/login": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/auth/login`
   },
   "/auth/register": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/auth/register`
+  },
+  "/auth/reset-password": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/auth/reset-password`
   },
   "/dashboard": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/dashboard`
@@ -53,11 +59,20 @@ const SERVERS = {
  * ACTIONS
  */
 const ACTIONS = {
+  "verifyCode /auth/email-verification": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/auth/email-verification?/verifyCode`
+  },
+  "sendNewCode /auth/email-verification": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/auth/email-verification?/sendNewCode`
+  },
   "logInUser /auth/login": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/auth/login?/logInUser`
   },
   "registerUser /auth/register": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/auth/register?/registerUser`
+  },
+  "resetPassword /auth/reset-password": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
+    return `${params?.lang ? `/${params?.lang}`: ''}/auth/reset-password?/resetPassword`
   },
   "logout /dashboard": (params?: { lang?: (Parameters<typeof import('../params/langCode.ts').match>[0]) }) => {
     return `${params?.lang ? `/${params?.lang}`: ''}/dashboard?/logout`
@@ -183,9 +198,9 @@ export function route<T extends keyof AllTypes>(key: T, ...params: any[]): strin
 * ```
 */
 export type KIT_ROUTES = {
-  PAGES: { '/': never, '/auth/login': 'lang', '/auth/register': 'lang', '/dashboard': 'lang', '/dashboard/configuration': 'lang', '/dashboard/configuration/account': 'lang', '/dashboard/configuration/appearance': 'lang', '/dashboard/configuration/notifications': 'lang', '/dashboard/machine-database': 'lang', '/dashboard/machines': 'lang', '/dashboard/user-manual': 'lang' }
+  PAGES: { '/': never, '/auth/email-verification': 'lang', '/auth/login': 'lang', '/auth/register': 'lang', '/auth/reset-password': 'lang', '/dashboard': 'lang', '/dashboard/configuration': 'lang', '/dashboard/configuration/account': 'lang', '/dashboard/configuration/appearance': 'lang', '/dashboard/configuration/notifications': 'lang', '/dashboard/machine-database': 'lang', '/dashboard/machines': 'lang', '/dashboard/user-manual': 'lang' }
   SERVERS: Record<string, never>
-  ACTIONS: { 'logInUser /auth/login': 'lang', 'registerUser /auth/register': 'lang', 'logout /dashboard': 'lang', 'deleteAllUsers /dashboard': 'lang', 'default /dashboard/configuration': 'lang', 'default /dashboard/configuration/account': 'lang', 'default /dashboard/configuration/appearance': 'lang', 'default /dashboard/configuration/notifications': 'lang' }
+  ACTIONS: { 'verifyCode /auth/email-verification': 'lang', 'sendNewCode /auth/email-verification': 'lang', 'logInUser /auth/login': 'lang', 'registerUser /auth/register': 'lang', 'resetPassword /auth/reset-password': 'lang', 'logout /dashboard': 'lang', 'deleteAllUsers /dashboard': 'lang', 'default /dashboard/configuration': 'lang', 'default /dashboard/configuration/account': 'lang', 'default /dashboard/configuration/appearance': 'lang', 'default /dashboard/configuration/notifications': 'lang' }
   LINKS: Record<string, never>
   Params: { lang: never }
 }
